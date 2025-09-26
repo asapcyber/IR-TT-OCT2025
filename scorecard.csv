@@ -1,0 +1,10 @@
+Domain,Task,Who,Status,Evidence,Timestamp,Score(0-3)
+Identification,Confirm affected identity (alex.old) and initial login vector,,,,,
+Identification,Scope EC2 assets & regions involved,,,,,
+Identification,Determine S3 buckets/objects accessed or attempted,,,,,
+Containment,Disable/rotate compromised access keys,,,,,
+Containment,Lock down Security Groups to least privilege,,,,,
+Containment,Quarantine or stop suspicious EC2 instances,,,,,
+Eradication,Remove unauthorized IAM policies/keys/backdoors,,,,,
+Eradication,Validate no ongoing egress in VPC Flow Logs,,,,,
+Eradication,Document recovery steps & monitoring plan,,,,,

@@ -1,0 +1,7 @@
+T+min,Inject#,Delivery,Description,Artifacts,Expected Actions,Evaluation Notes/Hints
+T+5,1,Verbal + artifact,CloudTrail snippet shows ConsoleLogin for user alex.old from 185.199.110.153 with MFAUsed=No,evidence/cloudtrail_logs.jsonl,"Triage identity, list recent actions & regions; start scoping.","Check source IP geo, look for additional API calls after login."
+T+12,2,Email printout,FinOps cost anomaly: EC2 spike in us-east-1 starting 02:10Z; GuardDuty flags CryptoMining:EC2,evidence/guardduty_findings.jsonl,Pivot to EC2 inventory & SG rules; identify instances involved.,Find SG allowing 0.0.0.0/0 on 22; tag suspicious instances.
+T+25,3,Chat message,"S3 access attempts on bucket acme-cust-data over past 24h; some denied, some successful",evidence/cloudtrail_logs.jsonl,Assess data access scope; check objects touched; notify owner.,Look for GetObject on sensitive prefixes; note user/role used.
+T+45,4,Verbal + artifact,IAM changes: new access key for alex.old; policy attached granting broad S3 and EC2,evidence/cloudtrail_logs.jsonl,"Containment: disable keys, restrict SGs, quarantine instances.",Rotate creds; create deny SCP if needed; snapshot for forensics.
+T+70,5,Email from exec,Request for customer comms & ETA,-,"Provide clear status, affected assets, immediate steps & ETA window.","Avoid over-promising; separate facts, assumptions, unknowns."
+T+95,6,Verbal,Final sweep & eradication validation,-,"Remove persistence, validate no egress in VPC logs; plan recovery.","Search for unexpected users/roles, backdoored keys, scheduled tasks."
